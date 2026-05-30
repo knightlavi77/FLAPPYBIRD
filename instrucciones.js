@@ -160,7 +160,7 @@ tuboX2 < -100
 ){
 
 tuboX2 =
-window.innerWidth;
+window.innerWidth + 500;
 
 let altura2 =
 Math.floor(
