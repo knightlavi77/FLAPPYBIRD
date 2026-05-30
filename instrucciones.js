@@ -32,7 +32,7 @@ document.getElementById(
 "puntaje"
 );
 
-/* ===========================
+/* ======================    =====
    VARIABLES DEL JUEGO
 =========================== */
 
@@ -48,7 +48,7 @@ let juegoActivo = true;
 
 /* dificultad */
 
-let hueco = 180;
+let hueco = 150;
 
 /* alturas permitidas */
 
