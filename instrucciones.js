@@ -41,7 +41,7 @@ let gravedad = 3;
 let salto = 45;
 
 let tuboX1 = window.innerWidth;
-let tuboX2 = window.innerWidth + 400;
+let tuboX2 = window.innerWidth + 600;
 
 let puntos = 0;
 
