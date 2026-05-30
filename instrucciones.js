@@ -140,7 +140,7 @@ Math.floor(
 Math.random()*250
 )+50;
 
-let hueco = 150;   
+let hueco = 250;   
 
 let alturaInferior = window.innerHeight - altura1 - hueco;
 
