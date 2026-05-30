@@ -33,6 +33,10 @@ document.getElementById(
 
 
 /* variables */
+let hueco = 180;
+
+let alturaMinima = 80;
+let alturaMaxima = 220;
 
 let y = 200;
 
@@ -137,16 +141,23 @@ tuboX1 = tuboX2 + 500;
 
 let altura1 =
 Math.floor(
-Math.random()*250
-)+50;
+Math.random() *
+(alturaMaxima - alturaMinima)
+)
++ alturaMinima;
 
-let hueco = 250;   
+let alturaInferior1 =
+window.innerHeight
+-
+altura1
+-
+hueco;
 
-let alturaInferior = window.innerHeight - altura1 - hueco;
+tuboSup1.style.height =
+altura1 + "px";
 
-tuboSup1.style.height = altura1 + "px";
-
-tuboInf1.style.height = alturaInferior +"px";
+tuboInf1.style.height =
+alturaInferior1 + "px";
 
 puntos++;
 puntajeTexto.innerHTML =
@@ -161,15 +172,23 @@ tuboX2 = tuboX1 + 500;
 
 let altura2 =
 Math.floor(
-Math.random()*250
-)+50;
+Math.random() *
+(alturaMaxima - alturaMinima)
+)
++ alturaMinima;
+
+let alturaInferior2 =
+window.innerHeight
+-
+altura2
+-
+hueco;
 
 tuboSup2.style.height =
 altura2 + "px";
 
 tuboInf2.style.height =
-(450-altura2)
-+ "px";
+alturaInferior2 + "px";
 
 puntos++;
 
