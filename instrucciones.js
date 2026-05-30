@@ -140,7 +140,7 @@ Math.floor(
 Math.random()*350
 )+50;
 
-let hueco = 150;   
+let hueco = 100;   
 
 tuboSup1.style.height =
 altura1 + "px";
