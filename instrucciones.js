@@ -48,7 +48,7 @@ let juegoActivo = true;
 
 /* dificultad */
 
-let hueco = 10;
+let hueco = 100;
 
 /* alturas permitidas */
 
