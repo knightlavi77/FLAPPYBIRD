@@ -33,7 +33,7 @@ document.getElementById(
 
 
 /* variables */
-let hueco = 100;
+let hueco = 50;
 
 let alturaMinima = 80;
 let alturaMaxima = 220;
