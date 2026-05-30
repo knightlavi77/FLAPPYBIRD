@@ -11,7 +11,7 @@ body{
 
 overflow:hidden;
 
-background:rgb(6, 34, 44);
+background:rgb(17, 163, 216);
 
 font-family:Arial;
 
@@ -127,3 +127,40 @@ z-index:20;
 
 }
 
+@media screen and (max-width: 768px) {
+   
+body{
+
+overflow:hidden;
+
+background:rgb(64, 194, 241);
+
+font-family:Arial;
+
+}
+
+#jugador{
+
+position:absolute;
+
+left:120px;
+
+top:200px;
+
+font-size:55px;
+
+width:60px;
+
+height:60px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:10;
+
+}
+    
+}
