@@ -131,16 +131,7 @@ tuboInf2.style.left =
 tuboX2 + "px";
 
 /* reinicio tubos */
-console.log(
-"Pantalla:",
-window.innerHeight,
-"Altura:",
-altura1,
-"Hueco:",
-hueco,
-"Inferior:",
-alturaInferior
-);
+
 
 
 if(
@@ -155,6 +146,17 @@ Math.random() *
 (alturaMaxima - alturaMinima)
 )
 + alturaMinima;
+
+console.log(
+"Pantalla:",
+window.innerHeight,
+"Altura:",
+altura1,
+"Hueco:",
+hueco,
+"Inferior:",
+alturaInferior
+);
 
 let alturaInferior1 =
 window.innerHeight
