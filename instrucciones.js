@@ -133,8 +133,7 @@ if(
 tuboX1 < -100
 ){
 
-tuboX1 =
-window.innerWidth;
+tuboX1 = tuboX2 + 500;
 
 let altura1 =
 Math.floor(
@@ -159,8 +158,7 @@ if(
 tuboX2 < -100
 ){
 
-tuboX2 =
-window.innerWidth;
+tuboX2 = tuboX1 + 500;
 
 let altura2 =
 Math.floor(
