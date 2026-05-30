@@ -1,3 +1,7 @@
+/* ===========================
+   REFERENCIAS DEL DOM
+=========================== */
+
 const jugador =
 document.getElementById(
 "jugador"
@@ -23,20 +27,14 @@ document.getElementById(
 "tuboInferior2"
 );
 
-
-
 const puntajeTexto =
 document.getElementById(
 "puntaje"
 );
 
-
-
-/* variables */
-let hueco = 50;
-
-let alturaMinima = 80;
-let alturaMaxima = 220;
+/* ===========================
+   VARIABLES DEL JUEGO
+=========================== */
 
 let y = 200;
 
@@ -44,21 +42,112 @@ let gravedad = 3;
 
 let salto = 45;
 
-let distanciaTubos = window.innerWidth * 1.2;
-
-let tuboX1 = window.innerWidth;
-let tuboX2 = window.innerWidth + distanciaTubos;
-
-
 let puntos = 0;
 
 let juegoActivo = true;
 
-/* salto */
+/* dificultad */
+
+let hueco = 180;
+
+/* alturas permitidas */
+
+let alturaMinima = 80;
+
+let alturaMaxima = 220;
+
+/* separación entre obstáculos */
+
+let separacion = 500;
+
+/* posiciones iniciales */
+
+let tuboX1 =
+window.innerWidth;
+
+let tuboX2 =
+window.innerWidth +
+separacion;
+
+/* ===========================
+   GENERADOR DE TUBOS
+=========================== */
+
+function generarTubo(
+tuboSuperior,
+tuboInferior
+){
+
+let alturaSuperior =
+
+Math.floor(
+
+Math.random() *
+
+(
+alturaMaxima -
+alturaMinima
+)
+
+)
+
++
+
+alturaMinima;
+
+let alturaInferior =
+
+window.innerHeight
+
+-
+
+alturaSuperior
+
+-
+
+hueco;
+
+/* evitar valores negativos */
+
+if(
+alturaInferior < 50
+){
+
+alturaInferior = 50;
+
+}
+
+tuboSuperior.style.height =
+
+alturaSuperior + "px";
+
+tuboInferior.style.height =
+
+alturaInferior + "px";
+
+}
+
+/* generar tubos iniciales */
+
+generarTubo(
+tuboSup1,
+tuboInf1
+);
+
+generarTubo(
+tuboSup2,
+tuboInf2
+);
+
+/* ===========================
+   SALTO
+=========================== */
 
 function brincar(){
 
-if(juegoActivo){
+if(
+juegoActivo
+){
 
 y -= salto;
 
@@ -66,15 +155,19 @@ y -= salto;
 
 }
 
-/* teclado */
+/* ===========================
+   TECLADO
+=========================== */
 
 document.addEventListener(
+
 "keydown",
 
 function(event){
 
 if(
-event.code=="Space"
+event.code ==
+"Space"
 ){
 
 brincar();
@@ -85,16 +178,21 @@ brincar();
 
 );
 
-/* click móvil */
+/* ===========================
+   CLICK PARA MOVIL
+=========================== */
 
 document.addEventListener(
+
 "click",
 
 brincar
 
 );
 
-/* loop */
+/* ===========================
+   BUCLE PRINCIPAL
+=========================== */
 
 function actualizar(){
 
@@ -113,10 +211,13 @@ y += gravedad;
 jugador.style.top =
 y + "px";
 
-/* movimiento tubos */
+/* mover tubos */
 
 tuboX1 -= 5;
+
 tuboX2 -= 5;
+
+/* actualizar posición */
 
 tuboSup1.style.left =
 tuboX1 + "px";
@@ -130,98 +231,86 @@ tuboX2 + "px";
 tuboInf2.style.left =
 tuboX2 + "px";
 
-/* reinicio tubos */
-
-
+/* =======================
+   REINICIO TUBO 1
+======================= */
 
 if(
 tuboX1 < -100
 ){
 
-tuboX1 = tuboX2 + 500;
+tuboX1 =
 
-let altura1 =
-Math.floor(
-Math.random() *
-(alturaMaxima - alturaMinima)
-)
-+ alturaMinima;
+tuboX2 +
 
+separacion;
 
+generarTubo(
 
-let alturaInferior1 =
-window.innerHeight
--
-altura1
--
-hueco;
+tuboSup1,
 
-tuboSup1.style.height =
-altura1 + "px";
+tuboInf1
 
-tuboInf1.style.height =
-alturaInferior1 + "px";
+);
 
 puntos++;
+
 puntajeTexto.innerHTML =
-"Puntos: " + puntos;
+
+"Puntos: " +
+
+puntos;
+
 }
+
+/* =======================
+   REINICIO TUBO 2
+======================= */
 
 if(
 tuboX2 < -100
 ){
 
-tuboX2 = tuboX1 + 500;
+tuboX2 =
 
-let altura2 =
-Math.floor(
-Math.random() *
-(alturaMaxima - alturaMinima)
-)
-+ alturaMinima;
+tuboX1 +
 
-let alturaInferior2 =
-window.innerHeight
--
-altura2
--
-hueco;
+separacion;
 
-tuboSup2.style.height =
-altura2 + "px";
+generarTubo(
 
-tuboInf2.style.height =
-alturaInferior2 + "px";
+tuboSup2,
+
+tuboInf2
+
+);
 
 puntos++;
 
 puntajeTexto.innerHTML =
-"Puntos: " + puntos;
+
+"Puntos: " +
+
+puntos;
 
 }
 
-console.log(
-"Pantalla:",
-window.innerHeight,
-"Altura:",
-altura1,
-"Hueco:",
-hueco,
-"Inferior:",
-alturaInferior
-);
-
-/* colisión suelo */
+/* =======================
+   COLISIÓN SUELO
+======================= */
 
 if(
-y > window.innerHeight-60
+y >
+window.innerHeight - 60
 ){
 
 finJuego();
 
 }
 
-/* colisión techo */
+/* =======================
+   COLISIÓN TECHO
+======================= */
 
 if(
 y < 0
@@ -231,17 +320,20 @@ finJuego();
 
 }
 
-/* colisión tubos */
+/* =======================
+   COLISIÓN TUBOS
+======================= */
 
 let jugadorRect =
+
 jugador.getBoundingClientRect();
-
-
 
 if(
 
 intersecta(
+
 jugadorRect,
+
 tuboSup1.getBoundingClientRect()
 
 )
@@ -249,22 +341,31 @@ tuboSup1.getBoundingClientRect()
 ||
 
 intersecta(
+
 jugadorRect,
+
 tuboInf1.getBoundingClientRect()
+
 )
 
 ||
 
 intersecta(
+
 jugadorRect,
+
 tuboSup2.getBoundingClientRect()
+
 )
 
 ||
 
 intersecta(
+
 jugadorRect,
+
 tuboInf2.getBoundingClientRect()
+
 )
 
 ){
@@ -272,9 +373,12 @@ tuboInf2.getBoundingClientRect()
 finJuego();
 
 }
+
 }
 
-/* detección */
+/* ===========================
+   DETECCIÓN DE COLISIÓN
+=========================== */
 
 function intersecta(
 a,
@@ -282,6 +386,7 @@ b
 ){
 
 return !(
+
 a.right < b.left ||
 
 a.left > b.right ||
@@ -294,23 +399,31 @@ a.top > b.bottom
 
 }
 
-/* fin */
+/* ===========================
+   FIN DEL JUEGO
+=========================== */
 
 function finJuego(){
 
 juegoActivo = false;
 
 alert(
+
 "Juego terminado\nPuntos: "
+
 +
+
 puntos
+
 );
 
 location.reload();
 
 }
 
-/* velocidad */
+/* ===========================
+   VELOCIDAD DEL JUEGO
+=========================== */
 
 setInterval(
 
