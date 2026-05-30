@@ -147,16 +147,7 @@ Math.random() *
 )
 + alturaMinima;
 
-console.log(
-"Pantalla:",
-window.innerHeight,
-"Altura:",
-altura1,
-"Hueco:",
-hueco,
-"Inferior:",
-alturaInferior
-);
+
 
 let alturaInferior1 =
 window.innerHeight
@@ -208,6 +199,17 @@ puntajeTexto.innerHTML =
 "Puntos: " + puntos;
 
 }
+
+console.log(
+"Pantalla:",
+window.innerHeight,
+"Altura:",
+altura1,
+"Hueco:",
+hueco,
+"Inferior:",
+alturaInferior
+);
 
 /* colisión suelo */
 
