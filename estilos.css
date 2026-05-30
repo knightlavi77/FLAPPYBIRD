@@ -127,33 +127,3 @@ z-index:20;
 
 }
 
-@media (max-width:768px){
-
-    body{
-
-    overflow:hidden;
-    touch-action:none;
-
-}
-
-    #jugador{
-
-        font-size:45px;
-
-    }
-
-    .tubos{
-
-        width:60px;
-
-    }
-
-    #puntaje{
-
-        font-size:14px;
-
-        padding:8px;
-
-    }
-
-}
